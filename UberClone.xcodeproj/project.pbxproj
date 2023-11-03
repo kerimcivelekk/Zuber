@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		D461E9222AF546A200E69629 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461E9212AF546A200E69629 /* AppDelegate.swift */; };
 		D461E9242AF546A200E69629 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461E9232AF546A200E69629 /* SceneDelegate.swift */; };
-		D461E9262AF546A200E69629 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461E9252AF546A200E69629 /* ViewController.swift */; };
 		D461E9292AF546A200E69629 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D461E9272AF546A200E69629 /* Main.storyboard */; };
 		D461E92B2AF546A300E69629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D461E92A2AF546A300E69629 /* Assets.xcassets */; };
 		D461E92E2AF546A300E69629 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D461E92C2AF546A300E69629 /* LaunchScreen.storyboard */; };
+		D461E93B2AF547BF00E69629 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461E93A2AF547BF00E69629 /* LoginController.swift */; };
+		D461E93D2AF54E7500E69629 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461E93C2AF54E7500E69629 /* Extensions.swift */; };
+		D461E93F2AF580A800E69629 /* SingUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461E93E2AF580A800E69629 /* SingUpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D461E91E2AF546A200E69629 /* UberClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D461E9212AF546A200E69629 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D461E9232AF546A200E69629 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D461E9252AF546A200E69629 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D461E9282AF546A200E69629 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D461E92A2AF546A300E69629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D461E92D2AF546A300E69629 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D461E92F2AF546A300E69629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D461E93A2AF547BF00E69629 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		D461E93C2AF54E7500E69629 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D461E93E2AF580A800E69629 /* SingUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,57 @@
 		D461E9202AF546A200E69629 /* UberClone */ = {
 			isa = PBXGroup;
 			children = (
+				D461E9372AF5470E00E69629 /* Controller */,
+				D461E9362AF546FE00E69629 /* View */,
+				D461E9352AF546F400E69629 /* Model */,
+				D461E9382AF5471E00E69629 /* Service */,
+				D461E9392AF5472600E69629 /* Utils */,
 				D461E9212AF546A200E69629 /* AppDelegate.swift */,
 				D461E9232AF546A200E69629 /* SceneDelegate.swift */,
-				D461E9252AF546A200E69629 /* ViewController.swift */,
 				D461E9272AF546A200E69629 /* Main.storyboard */,
 				D461E92A2AF546A300E69629 /* Assets.xcassets */,
 				D461E92C2AF546A300E69629 /* LaunchScreen.storyboard */,
 				D461E92F2AF546A300E69629 /* Info.plist */,
 			);
 			path = UberClone;
+			sourceTree = "<group>";
+		};
+		D461E9352AF546F400E69629 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D461E9362AF546FE00E69629 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D461E9372AF5470E00E69629 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D461E93A2AF547BF00E69629 /* LoginController.swift */,
+				D461E93E2AF580A800E69629 /* SingUpController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D461E9382AF5471E00E69629 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D461E9392AF5472600E69629 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D461E93C2AF54E7500E69629 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +184,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D461E9262AF546A200E69629 /* ViewController.swift in Sources */,
 				D461E9222AF546A200E69629 /* AppDelegate.swift in Sources */,
+				D461E93B2AF547BF00E69629 /* LoginController.swift in Sources */,
+				D461E93F2AF580A800E69629 /* SingUpController.swift in Sources */,
 				D461E9242AF546A200E69629 /* SceneDelegate.swift in Sources */,
+				D461E93D2AF54E7500E69629 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
