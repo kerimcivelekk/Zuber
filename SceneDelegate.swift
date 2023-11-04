@@ -13,13 +13,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+      
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            
+
             // Başlangıç sayfasını oluşturun ve kök görünüm denetleyicisi olarak ayarlayın.
-            let startPageViewController = LoginController()
-            window.rootViewController = UINavigationController(rootViewController: startPageViewController)
-            
+            let startPageViewController = HomeController() // HomeController'ı oluşturun
+
+            // Eğer HomeController'ı başka bir şekilde başlatmanız gerekiyorsa, örneğin, bir storyboard kullanıyorsanız:
+            // let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // let startPageViewController = storyboard.instantiateViewController(withIdentifier: "HomeController")
+
+            let navigationController = UINavigationController(rootViewController: startPageViewController)
+            window.rootViewController = navigationController
+
             self.window = window
             window.makeKeyAndVisible()
         }

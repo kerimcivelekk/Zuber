@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController{
     
@@ -25,7 +26,7 @@ class LoginController: UIViewController{
     }()
     
     private lazy var passwordContainerView: UIView = {
-        let view =  UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_lock_outline_white_2x.png"), textfield: passordTextField)
+        let view =  UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_lock_outline_white_2x.png"), textfield: passwordTextField)
         view.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return view
     }()
@@ -35,19 +36,15 @@ class LoginController: UIViewController{
     }()
     
     
-    private let passordTextField: UITextField = {
+    private let passwordTextField: UITextField = {
         return UITextField().textField(withPlaceholder: "Password", isSecureTextEntry: true)
     }()
     
  
-    private let loginButton: UIButton = {
-        let button = UIButton(type: .system)
+    private let loginButton: AuthButton = {
+        let button = AuthButton(type: .system)
         button.setTitle("Log In", for: .normal)
-        button.setTitleColor(UIColor(white: 1, alpha: 0.5), for: .normal)
-        button.backgroundColor = .mainBlueTint
-        button.layer.cornerRadius = 5
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize:13)
+        button.addTarget(nil, action: #selector(handleSignIn), for: .touchUpInside)
         return button
     }()
     
@@ -79,6 +76,43 @@ class LoginController: UIViewController{
         let controller = SingUpController()
         navigationController?.pushViewController(controller, animated: true)
     }
+    
+    
+    @objc func handleSignIn() {
+        guard let email = emailTextField.text, !email.isEmpty else {
+            // E-posta adresi girilmediğinde veya boşsa hata verilebilir.
+            // Hata işleme kodu buraya eklenmelidir.
+            return
+        }
+
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            // Şifre girilmediğinde veya boşsa hata verilebilir.
+            // Hata işleme kodu buraya eklenmelidir.
+            return
+        }
+
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("Kullanıcı girişi başarısız oldu. Hata: \(error.localizedDescription)")
+                // Hata işleme kodu buraya eklenmelidir.
+            } else {
+
+                let controller = HomeController()
+                controller.checkIfUserIsLoggedIn()
+                controller.modalPresentationStyle = .fullScreen
+                
+                self.present(controller, animated: true, completion: {
+                    // Giriş yapılınca mevcut görünümü kapat
+                    print("Kullanıcı başarıyla giriş yaptı.")
+                })
+            }
+        }
+    }
+
+    
+
+
+
     
     //MARK: - Helper Functions
     

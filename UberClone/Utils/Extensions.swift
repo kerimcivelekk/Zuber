@@ -20,21 +20,35 @@ extension UIColor{
 
 extension UIView{
     
-    func inputContainerView(image: UIImage, textfield: UITextField)->UIView{
+    func inputContainerView(image: UIImage, textfield: UITextField? = nil, segmentedControl: UISegmentedControl? = nil)-> UIView{
+        
         let view = UIView()
         
         let imageView = UIImageView()
         imageView.image = image
         imageView.alpha = 0.87
         view.addSubview(imageView)
-        imageView.centerY(inView: view)
-        imageView.anchor(left: view.leftAnchor, paddingLeft: 10, width: 20, height: 20)
+       
         
         
-        view.addSubview(textfield)
-        textfield.anchor(left: imageView.rightAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 10, paddingBottom: 10, paddingRight: 10)
-        textfield.centerY(inView: view)
+        if let textfield = textfield{
+            
+            imageView.centerY(inView: view)
+            imageView.anchor(left: view.leftAnchor, paddingLeft: 10, width: 20, height: 20)
+            
+            view.addSubview(textfield)
+            textfield.anchor(left: imageView.rightAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 10, paddingBottom: 10, paddingRight: 10)
+            textfield.centerY(inView: view)
+        }
         
+        if let sc = segmentedControl{
+            imageView.anchor(top:view.topAnchor, left: view.leftAnchor, paddingTop: -7, paddingLeft: 10, width: 25, height: 25)
+            
+            view.addSubview(sc)
+            sc.anchor(left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 10, paddingRight: 10)
+            sc.centerY(inView: view, constant: 7)
+        }
+       
         
         let seperatorView = UIView()
         seperatorView.backgroundColor = .lightGray
